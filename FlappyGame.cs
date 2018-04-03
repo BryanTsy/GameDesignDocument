@@ -61,7 +61,7 @@ namespace FlappyBird
             Statics.GAME_CLOCK = _gameClock;
             _gameClock.Elapsed += new ElapsedEventHandler(OnGameClock_Event);
             _gameClock.Enabled = false;
-            music.PlayLooping();
+           music.PlayLooping();
             base.Initialize();
         }
 
