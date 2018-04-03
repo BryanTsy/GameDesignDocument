@@ -61,6 +61,13 @@ namespace FlappyBird.Managers
 
             #endregion
 
+			#region Screen : Characters
+
+			TextureVectors.Add("Characters\\CharactersOri", new Vector2((float)(_screenQuarterX - Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOri"].Width / 2), (float)(_screenThirdY* 1.5 - Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOri"].Height) - 60));
+            TextureVectors.Add("Characters\\CharactersOrange", new Vector2((float)(_screenCenterX - Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOrange"].Width / 2), (float)(_screenThirdY* 1.5 - Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOri"].Height) - 60));
+
+			#endregion
+
             #region Screen : Game
 
             TextVectors.Add("Game\\Score", new Vector2(20, 20));
@@ -137,6 +144,11 @@ namespace FlappyBird.Managers
                 Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\ButtonParatroopa"], TextureVectors["Level\\Paratroopa"], Color.White);
                 
             }
+			else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Characters"])
+			{
+				Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOri"], TextureVectors["Characters\\CharactersOri"], Color.White);
+				Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOrange"], TextureVectors["Characters\\CharactersOrange"], Color.White);
+			}
             else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Game"])
             {
                 if (Statics.GAME_STATE == Statics.STATE.GameOver)

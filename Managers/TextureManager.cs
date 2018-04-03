@@ -23,9 +23,11 @@ namespace FlappyBird.Managers
         {
             #region Entity Textures
 
+			AnimatedTextures.Add("Entity\\BirdOrange", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Entity\\flappy_bird_animated_orange"));
             AnimatedTextures.Add("Entity\\Bird", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Entity\\flappy_bird_animated"));
             AnimatedTextures.Add("Entity\\Paratroopa", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Entity\\flappy_paratroopa_animated"));
 
+			Textures.Add("Entity\\BirdOrange", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Entity\\flappy_bird_orange"));
             Textures.Add("Entity\\Bird", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Entity\\flappy_bird"));
             Textures.Add("Entity\\DeadBird", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Entity\\flappy_bird_dead"));
             Textures.Add("Entity\\Boomba", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Entity\\flappy_boomba"));
@@ -43,7 +45,9 @@ namespace FlappyBird.Managers
             Textures.Add("UI\\ButtonPipe", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Button\\flappy_level_pipes"));
             Textures.Add("UI\\ButtonBullet", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Button\\flappy_level_bullet"));
             Textures.Add("UI\\ButtonParatroopa", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Button\\flappy_level_paratroopa"));
-            
+            Textures.Add("UI\\ButtonCharactersOri", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Button\\flappy_char_ori"));
+			Textures.Add("UI\\ButtonCharactersOrange", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Button\\flappy_char_orange"));
+
             #endregion
         }
     }

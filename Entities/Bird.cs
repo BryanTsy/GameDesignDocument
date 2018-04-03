@@ -30,10 +30,20 @@ namespace FlappyBird.Entities
             this.ColorData = new Color[this.Width * this.Height];
             this.Texture.GetData(ColorData);
 
-            Texture2D texture = Statics.MANAGER_TEXTURES.AnimatedTextures["Entity\\Bird"];
+            if (Statics.CHAR_SELECT.Equals(Statics.BIRDS.BirdOrange))
+			{
+				Texture2D texture = Statics.MANAGER_TEXTURES.AnimatedTextures["Entity\\Bird"];
 
-            _bird_Sprite = new AnimatedSprite();
-            _bird_Sprite.Initialize(texture, this.Position, this.Rotation, 128, 128, 4, 60, Color.White, this.Scale, true);
+				_bird_Sprite = new AnimatedSprite();
+				_bird_Sprite.Initialize(texture, this.Position, this.Rotation, 128, 128, 4, 60, Color.White, this.Scale, true);
+			}
+			else if (Statics.CHAR_SELECT.Equals(Statics.BIRDS.BirdOri))
+			{
+				Texture2D texture = Statics.MANAGER_TEXTURES.AnimatedTextures["Entity\\BirdOrange"];
+
+				_bird_Sprite = new AnimatedSprite();
+				_bird_Sprite.Initialize(texture, this.Position, this.Rotation, 128, 128, 4, 60, Color.White, this.Scale, true);
+			}
 
             _ySpeed = 0f;
         }

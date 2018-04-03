@@ -12,6 +12,7 @@ namespace FlappyBird.Managers
             Cursor,
             Death,
             Debug,
+			Characters,
             Game,
             Level,
             Title
@@ -34,6 +35,7 @@ namespace FlappyBird.Managers
             _stack.Add("Game", new Screens.GameScreen());
             _stack.Add("Level", new Screens.LevelScreen());
             _stack.Add("Title", new Screens.TitleScreen());
+			_stack.Add("Characters", new Screens.CharSelectScreen());
         }
 
         public void Update()

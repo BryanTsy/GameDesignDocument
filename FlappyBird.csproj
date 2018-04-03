@@ -83,6 +83,7 @@
     <Compile Include="Templates\Screen.cs" />
     <Compile Include="Screens\TitleScreen.cs" />
     <Compile Include="Statics.cs" />
+    <Compile Include="Screens\CharSelectScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

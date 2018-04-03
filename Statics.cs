@@ -35,6 +35,12 @@ namespace FlappyBird
             Pipes
         }
 
+		public enum BIRDS
+		{
+			BirdOri,
+			BirdOrange		}
+
+
         public static int GAME_WIDTH = 1280;
         public static int GAME_HEIGHT = 720;
 
@@ -51,6 +57,8 @@ namespace FlappyBird
         public static int GAME_LEVEL = 1;
         public static int GAME_HIGHSCORE = 0;
         public static bool GAME_NEWHIGHSCORE = false;
+
+		public static BIRDS CHAR_SELECT;
 
         public static GameTime GAME_GAMETIME;
         public static SpriteBatch GAME_SPRITEBATCH;

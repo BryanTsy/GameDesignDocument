@@ -35,7 +35,7 @@ namespace FlappyBird.Screens
             {
                 Statics.GAME_WORLD = Statics.WORLD.Pipes;
                 
-                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Game"];
+                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Characters"];
                 Statics.GAME_STATE = Statics.STATE.Playing;
             }
             else if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _bulletButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
