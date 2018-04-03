@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-music",
+      "appliesTo": "Content/Sounds/music.wav",
+      "type": "launch"
+    },
+    {
+      "taskName": "task-music",
+      "appliesTo": "Content/Sounds/music.wav",
+      "type": "launch"
+    }
+  ]
+}
