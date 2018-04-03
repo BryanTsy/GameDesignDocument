@@ -177,7 +177,29 @@ namespace FlappyBird
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.DeepSkyBlue);
+            //mycode
+            //change the background color based on the score
+            int score = Statics.GAME_SCORE;
+
+
+            if (score == 0 || score < 3)
+            {
+                GraphicsDevice.Clear(Color.DeepSkyBlue);
+            }
+            else if (score % 3 == 0)
+            {
+                GraphicsDevice.Clear(Color.DarkSlateBlue);
+            }
+            else if (score % 3 == 1)
+            {
+                GraphicsDevice.Clear(Color.DarkSlateBlue);
+            }
+            else
+            {
+                GraphicsDevice.Clear(Color.MidnightBlue);
+            }
+
+            //GraphicsDevice.Clear(Color.DeepSkyBlue);
 
             Statics.GAME_BACKGROUND.Draw();
             Statics.SCREEN_CURRENT.Draw();
