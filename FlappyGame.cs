@@ -17,7 +17,7 @@ namespace FlappyBird
     /// </summary>
     public class FlappyGame : Game
     {
-         System.Media.SoundPlayer music = new System.Media.SoundPlayer("Content\\Sounds\\music.wav");
+       
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
@@ -61,7 +61,7 @@ namespace FlappyBird
             Statics.GAME_CLOCK = _gameClock;
             _gameClock.Elapsed += new ElapsedEventHandler(OnGameClock_Event);
             _gameClock.Enabled = false;
-           music.PlayLooping();
+         
             base.Initialize();
         }
 
