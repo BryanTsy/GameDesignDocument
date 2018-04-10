@@ -112,22 +112,21 @@ namespace FlappyBird.Entities
                 Jump();
 
             if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D1))
-                if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D1))
-                {
-                    startTime = DateTime.UtcNow;
+            { 
+                startTime = DateTime.UtcNow;
 
-                    if (Pcount > 0)
-                    {
-                        UseJumpBoost = true;
-                        UseSlowFall = true;
-                        Pcount--;
-                    }
-                    else
-                    {
-                        UseJumpBoost = false;
-                        UseSlowFall = false;
-                    }
+                if (Pcount > 0)
+                {
+                    UseJumpBoost = true;
+                    UseSlowFall = true;
+                    Pcount--;
                 }
+                else
+                {
+                    UseJumpBoost = false;
+                    UseSlowFall = false;
+                }
+            }
 
             // Input : Gamepad
             this.Position.X += Statics.MANAGER_INPUT.CurrentGamePadState().ThumbSticks.Left.X * this.MoveSpeed;
