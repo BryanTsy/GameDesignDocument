@@ -14,8 +14,10 @@ namespace FlappyBird.Screens
 {
 	class CharSelectScreen : Screen
 	{
+		System.Media.SoundPlayer sound = new System.Media.SoundPlayer("Content\\Sounds\\Button.wav");
 		private Rectangle _charBirdOri;
 		private Rectangle _charBirdOrange;
+		private Rectangle _backButton;
 
 		public CharSelectScreen()
 		{
@@ -26,6 +28,7 @@ namespace FlappyBird.Screens
 		{
 			_charBirdOri = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Characters\\CharactersOri"].X, (int)Statics.MANAGER_UI.TextureVectors["Characters\\CharactersOri"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOri"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOri"].Height);
 			_charBirdOrange = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Characters\\CharactersOrange"].X, (int)Statics.MANAGER_UI.TextureVectors["Characters\\CharactersOrange"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOrange"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\ButtonCharactersOrange"].Height);
+			_backButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Characters\\Back"].X, (int)Statics.MANAGER_UI.TextureVectors["Characters\\Back"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
 
 			base.LoadContent();
 		}
@@ -36,6 +39,7 @@ namespace FlappyBird.Screens
 
 			if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _charBirdOri.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
 			{
+				sound.Play();
 				Statics.CHAR_SELECT = Statics.BIRDS.BirdOri;
 				Statics.GAME_WORLD = Statics.WORLD.Pipes;
 
@@ -44,6 +48,7 @@ namespace FlappyBird.Screens
 			}
 			else if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _charBirdOrange.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
 			{
+				sound.Play();
 				Statics.CHAR_SELECT = Statics.BIRDS.BirdOrange;
 				Statics.GAME_WORLD = Statics.WORLD.Pipes;
 
@@ -56,12 +61,23 @@ namespace FlappyBird.Screens
 				Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Level"];
 			}
 
+			CheckForInput();
 			base.Update();
 		}
 
 		public override void Draw()
 		{
 			base.Draw();
+		}
+
+		private void CheckForInput()
+		{
+			if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _backButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
+			{
+				sound.Play();
+				Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Level"];
+
+			}
 		}
 	}
 }
