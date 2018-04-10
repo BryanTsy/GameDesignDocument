@@ -94,7 +94,7 @@ namespace FlappyBird
                 screen.LoadContent();
             }
 
-            Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Title"];
+            Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Splash"];
         }
 
         /// <summary>

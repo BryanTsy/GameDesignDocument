@@ -10,6 +10,7 @@ namespace FlappyBird.Managers
         public enum ScreenType
         {
             Cursor,
+            Splash,
             Death,
             Debug,
 			Characters,
@@ -30,6 +31,7 @@ namespace FlappyBird.Managers
 
         public void LoadContent()
         {
+            _stack.Add("Splash", new Screens.SplashScreen());
             _stack.Add("Cursor", new Screens.CursorScreen());
             _stack.Add("Death", new Screens.DeathScreen());
             _stack.Add("Debug", new Screens.DebugScreen());

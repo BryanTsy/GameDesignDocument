@@ -47,6 +47,7 @@ namespace FlappyBird
         public static int GAME_FLOOR = GAME_HEIGHT - 90;
 
         public static string GAME_TITLE = "Flappy Bird";
+        public static string GAME_WAIT = "PLEASE WAIT FOR SECONDS...";
 
         public static STATE GAME_STATE = STATE.GameOver;
 

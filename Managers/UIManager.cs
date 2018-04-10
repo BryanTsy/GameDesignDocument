@@ -40,6 +40,14 @@ namespace FlappyBird.Managers
 
         public void LoadContent()
         {
+
+            #region Screen : Splash
+
+
+            TextureVectors.Add("Splash\\banner", new Vector2((float)(_screenCenterX - Statics.MANAGER_TEXTURES.Textures["UI\\banner"].Width / 2), (float)(_screenThirdY * 1.5 - Statics.MANAGER_TEXTURES.Textures["UI\\banner"].Height / 2) - 35));
+
+            #endregion
+
             #region Screen : 
 
 
@@ -141,8 +149,12 @@ namespace FlappyBird.Managers
         public void Draw()
         {
             Statics.GAME_SPRITEBATCH.Begin();
-
-            if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Title"])
+            if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Splash"])
+            {
+                Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\banner"], TextureVectors["Splash\\banner"], Color.White);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], Statics.GAME_WAIT, new Vector2(_screenCenterX + 50, _screenQuarterY + 425), Color.White, 0.0f, TextVectors["Title\\Title"], 1.0f, SpriteEffects.None, 1.0f);
+            }
+            else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Title"])
             {
                 Statics.GAME_SPRITEBATCH.Draw(Statics.TEXTURE_PIXEL, new Rectangle(0, 0, Statics.GAME_WIDTH, Statics.GAME_HEIGHT), Statics.COLOR_TITLE);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"], Statics.GAME_TITLE, new Vector2(_screenCenterX, _screenQuarterY), Color.White, 0.0f, TextVectors["Title\\Title"], 1.0f, SpriteEffects.None, 1.0f);
