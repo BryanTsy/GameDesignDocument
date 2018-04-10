@@ -248,6 +248,7 @@ namespace FlappyBird.Screens
                         }
                     case Statics.STATE.Playing:
                         {
+
                             Statics.GAME_STATE = Statics.STATE.Paused;
                             break;
                         }

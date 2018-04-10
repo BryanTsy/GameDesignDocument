@@ -15,7 +15,8 @@ namespace FlappyBird.Managers
 			Characters,
             Game,
             Level,
-            Title
+            Title,
+            Credit
         }
 
         private Dictionary<string, Screens.Screen> _stack;
@@ -36,6 +37,8 @@ namespace FlappyBird.Managers
             _stack.Add("Level", new Screens.LevelScreen());
             _stack.Add("Title", new Screens.TitleScreen());
 			_stack.Add("Characters", new Screens.CharSelectScreen());
+            _stack.Add("Credit", new Screens.Credit());
+            
         }
 
         public void Update()

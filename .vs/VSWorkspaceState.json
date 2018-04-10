@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Content",
+    "\\Content\\Fonts",
+    "\\Content\\Sounds",
+    "\\Content\\Textures",
+    "\\Content\\Textures\\Background",
+    "\\Helpers",
+    "\\Managers",
+    "\\Screens",
+    "\\Templates"
+  ],
+  "SelectedNode": "\\Screens\\Credit.cs",
+  "PreviewInSolutionExplorer": false
+}
