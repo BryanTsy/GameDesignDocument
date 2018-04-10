@@ -13,6 +13,9 @@ namespace FlappyBird.Entities
         private AnimatedSprite _bird_Sprite;
         private float _ySpeed;
 
+        private int Pcount = 3;
+        private DateTime startTime;
+
         public bool UseSlowFall = false;
         public bool UseJumpBoost = false;
         public bool UseStarPower = false;
@@ -52,9 +55,15 @@ namespace FlappyBird.Entities
         {
             if (Statics.GAME_STATE == Statics.STATE.Playing)
             {
-                _ySpeed += UseSlowFall ? .5f : .75f;
+                _ySpeed += UseSlowFall ? .25f : .75f;
 
                 CheckForInput();
+
+                if (DateTime.UtcNow - startTime > TimeSpan.FromSeconds(3))
+                {
+                    UseJumpBoost = false;
+                    UseSlowFall = false;
+                }
 
                 this.Position.Y =  MathHelper.Clamp(this.Position.Y, (this.Height * this.Scale), Statics.GAME_FLOOR + this.Height * _bird_Sprite.Scale);
 
@@ -103,10 +112,22 @@ namespace FlappyBird.Entities
                 Jump();
 
             if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D1))
-                UseJumpBoost = UseJumpBoost ? false : true;
+                if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D1))
+                {
+                    startTime = DateTime.UtcNow;
 
-            if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D2))
-                UseSlowFall = UseSlowFall ? false : true;
+                    if (Pcount > 0)
+                    {
+                        UseJumpBoost = true;
+                        UseSlowFall = true;
+                        Pcount--;
+                    }
+                    else
+                    {
+                        UseJumpBoost = false;
+                        UseSlowFall = false;
+                    }
+                }
 
             // Input : Gamepad
             this.Position.X += Statics.MANAGER_INPUT.CurrentGamePadState().ThumbSticks.Left.X * this.MoveSpeed;
@@ -116,7 +137,7 @@ namespace FlappyBird.Entities
         {
             Statics.MANAGER_SOUND.Play("Player\\Jump");
 
-            _ySpeed = UseJumpBoost ? -14 : -8;
+            _ySpeed = UseJumpBoost ? -5 : -8;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace FlappyBird.Managers
 
         private float _screenQuarterX;
         private float _screenQuarterY;
+
+        private int Pcount = 3;
 
         public UIManager()
         {
@@ -102,6 +105,7 @@ namespace FlappyBird.Managers
 
             TextVectors.Add("Game\\Score", new Vector2(20, 20));
             TextVectors.Add("Game\\Level", new Vector2(20, 50));
+            TextVectors.Add("Game\\GPU", new Vector2(20, 80));
 
             #endregion
 
@@ -216,6 +220,7 @@ namespace FlappyBird.Managers
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"], "Game Over", new Vector2(_screenCenterX, _screenQuarterY), Color.White, 0.0f, TextVectors["GameOver\\Title"], 1.0f, SpriteEffects.None, 1.0f);
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Extra"], Statics.GAME_SCORE.ToString("00"), new Vector2(_screenCenterX, _screenCenterY - 30), Color.White, 0.0f, TextVectors["GameOver\\Score"], 1.0f, SpriteEffects.None, 1.0f);
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], string.Format("You flapped for {0} seconds", Statics.TIME_ACTUALGAMETIME.TotalSeconds.ToString("00")), new Vector2(_screenCenterX, _screenCenterY + 160), Color.White, 0.0f, TextVectors["GameOver\\TimeFlapped"], 1.0f, SpriteEffects.None, 1.0f);
+                    Pcount = 3;
 
                     if (Statics.GAME_NEWHIGHSCORE)
                         Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"], "New high score", new Vector2(_screenCenterX, _screenCenterY + 100), Color.White, 0.0f, TextVectors["GameOver\\HighScore"], 1.0f, SpriteEffects.None, 1.0f);
@@ -230,6 +235,15 @@ namespace FlappyBird.Managers
 
                 if (Statics.GAME_STATE == Statics.STATE.Playing)
                 {
+                    if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D1) && Pcount > 0)
+                    {
+                        Pcount--;
+                        Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Glide Power Up: {0}", Pcount.ToString("3")), TextVectors["Game\\GPU"], Color.White);
+                    }
+                    else
+                    {
+                        Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Glide Power Up: {0}", Pcount.ToString("0")), TextVectors["Game\\GPU"], Color.White);
+                    }
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Score: {0}", Statics.GAME_SCORE.ToString("00")), TextVectors["Game\\Score"], Color.White);
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Level: {0}", Statics.GAME_LEVEL.ToString("00")), TextVectors["Game\\Level"], Color.White);
                 }
