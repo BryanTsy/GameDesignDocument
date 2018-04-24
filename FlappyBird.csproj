@@ -59,6 +59,7 @@
     <Compile Include="Managers\SoundManager.cs" />
     <Compile Include="Managers\TextureManager.cs" />
     <Compile Include="Screens\DebugScreen.cs" />
+    <Compile Include="Screens\Instructions.cs" />
     <Compile Include="Screens\SplashScreen.cs" />
     <Compile Include="Templates\AnimatedSprite.cs" />
     <Compile Include="Entities\Bird.cs" />

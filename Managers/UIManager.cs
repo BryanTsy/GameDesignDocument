@@ -59,14 +59,18 @@ namespace FlappyBird.Managers
             TextVectors.Add("Title\\Start", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Start") / 2);
             TextVectors.Add("Title\\Exit", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Exit") / 2);
             TextVectors.Add("Title\\Credit", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Credit") / 2);
+            TextVectors.Add("Title\\Instructions", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Instructions") / 2);
+            TextVectors.Add("Title\\Mute", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Mute") / 2);
 
             TextureVectors.Add("Title\\Start", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) - 110));
             TextureVectors.Add("Title\\Exit", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 0));
             TextureVectors.Add("Title\\Credit", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 115));
+            TextureVectors.Add("Title\\Instructions", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) - 220));
+            TextureVectors.Add("Title\\Mute", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 225));
             #endregion
 
             #region Screen : Level
-			TextVectors.Add("Level\\Back", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Back") / 2);
+            TextVectors.Add("Level\\Back", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Back") / 2);
             TextVectors.Add("Level\\Title", Statics.MANAGER_FONT.Library["Large"].MeasureString("Select level") / 2);
          
 			TextureVectors.Add("Level\\Back", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 130));
@@ -97,6 +101,21 @@ namespace FlappyBird.Managers
 
             TextVectors.Add("Credit\\Back", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Credit") / 2);
             TextureVectors.Add("Credit\\Back", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 150));
+
+
+            #endregion
+
+            #region Screen : Instructions
+            TextVectors.Add("Instructions\\Title", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Instructions for Flappy Bird") / 2);
+            TextVectors.Add("Instructions\\Content1", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Buttons to click for jump:") / 2);
+            TextVectors.Add("Instructions\\Content2", Statics.MANAGER_FONT.Library["Small"].MeasureString("Space bar") / 2);
+            TextVectors.Add("Instructions\\Content3", Statics.MANAGER_FONT.Library["Small"].MeasureString("Left mouse click") / 2);
+
+            TextVectors.Add("Instructions\\Content7", Statics.MANAGER_FONT.Library["Regular"].MeasureString("That's All! Simple n Easy Game") / 2);
+            TextVectors.Add("Instructions\\Content8", Statics.MANAGER_FONT.Library["Small"].MeasureString("Enjoy!!!") / 2);
+
+            TextVectors.Add("Instructions\\Back", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Instructions") / 2);
+            TextureVectors.Add("Instructions\\Back", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 150));
 
 
             #endregion
@@ -174,6 +193,11 @@ namespace FlappyBird.Managers
                  Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Title\\Credit"], Color.White);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Credit", new Vector2(_screenCenterX, _screenThirdY * 2 + 115), Color.White, 0.0f, TextVectors["Title\\Credit"], 1.0f, SpriteEffects.None, 1.0f);
 
+                Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Title\\Instructions"], Color.White);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Instructions", new Vector2(_screenCenterX, _screenThirdY * 2 - 220), Color.White, 0.0f, TextVectors["Title\\Instructions"], 1.0f, SpriteEffects.None, 1.0f);
+
+                Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Title\\Mute"], Color.White);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Mute", new Vector2(_screenCenterX, _screenThirdY * 2 + 225), Color.White, 0.0f, TextVectors["Title\\Mute"], 1.0f, SpriteEffects.None, 1.0f);
             }
             else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Credit"])
                 {
@@ -191,6 +215,21 @@ namespace FlappyBird.Managers
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Back", new Vector2(_screenCenterX, _screenThirdY * 2 + 150), Color.White, 0.0f, TextVectors["Title\\Credit"], 1.0f, SpriteEffects.None, 1.0f);
 
                 }
+
+            else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Instructions"])
+            {
+                Statics.GAME_SPRITEBATCH.Draw(Statics.TEXTURE_PIXEL, new Rectangle(0, 0, Statics.GAME_WIDTH, Statics.GAME_HEIGHT), Statics.COLOR_TITLE);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Instructions for Flappy Bird", new Vector2(_screenCenterX, _screenQuarterY * 2 - 300), Color.White, 0.0f, TextVectors["Instructions\\Title"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Buttons to click for jump:", new Vector2(_screenCenterX, _screenQuarterY * 2 - 230), Color.White, 0.0f, TextVectors["Instructions\\Content1"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Space bar", new Vector2(_screenCenterX, _screenQuarterY * 2 - 160), Color.White, 0.0f, TextVectors["Instructions\\Content2"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Left mouse click", new Vector2(_screenCenterX, _screenQuarterY * 2 - 120), Color.White, 0.0f, TextVectors["Instructions\\Content3"], 1.0f, SpriteEffects.None, 1.0f);
+
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "That's All! Simple n Easy Game", new Vector2(_screenCenterX, _screenQuarterY * 2 + 80), Color.White, 0.0f, TextVectors["Instructions\\Content7"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Enjoy!!!", new Vector2(_screenCenterX, _screenQuarterY * 2 + 150), Color.White, 0.0f, TextVectors["Instructions\\Content8"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Instructions\\Back"], Color.White);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Back", new Vector2(_screenCenterX, _screenThirdY * 2 + 150), Color.White, 0.0f, TextVectors["Title\\Instructions"], 1.0f, SpriteEffects.None, 1.0f);
+
+            }
 
 
             else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Level"])

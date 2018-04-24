@@ -12,7 +12,9 @@ namespace FlappyBird.Screens
 		private Rectangle _startButton;
 		private Rectangle _exitButton;
 		private Rectangle _creditButton;
-		System.Media.SoundPlayer sound = new System.Media.SoundPlayer("Content\\Sounds\\Button.wav");
+        private Rectangle _instructionsButton;
+        private Rectangle _muteButton;
+        System.Media.SoundPlayer sound = new System.Media.SoundPlayer("Content\\Sounds\\Button.wav");
 
 		public TitleScreen()
 		{
@@ -24,8 +26,9 @@ namespace FlappyBird.Screens
 			_startButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Start"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Start"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
 			_exitButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Exit"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Exit"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
 			_creditButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Credit"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Credit"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
-
-			base.LoadContent();
+            _instructionsButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Instructions"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Instructions"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
+            _muteButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Mute"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Mute"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
+            base.LoadContent();
 		}
 
 		public override void Update()
@@ -61,9 +64,21 @@ namespace FlappyBird.Screens
 				Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Credit"];
 			}
 
-			// Input : Keyboard
+            if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _instructionsButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
+            {
+                sound.Play();
+                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Instructions"];
+            }
 
-			if (Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.Start) || Statics.MANAGER_INPUT.IsKeyPressed(Keys.Enter))
+            if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _muteButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
+            {
+                sound.Stop();
+
+            }
+
+            // Input : Keyboard
+
+            if (Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.Start) || Statics.MANAGER_INPUT.IsKeyPressed(Keys.Enter))
 			{
 				Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Level"];
 			}
