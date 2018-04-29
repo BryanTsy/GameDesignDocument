@@ -23,6 +23,7 @@ namespace FlappyBird.Managers
         private float _screenQuarterY;
 
         private int Pcount = 3;
+        private int SMPcount = 3;
 
         public UIManager()
         {
@@ -125,6 +126,7 @@ namespace FlappyBird.Managers
             TextVectors.Add("Game\\Score", new Vector2(20, 20));
             TextVectors.Add("Game\\Level", new Vector2(20, 50));
             TextVectors.Add("Game\\GPU", new Vector2(20, 80));
+            TextVectors.Add("Game\\SM", new Vector2(20, 110));
 
             #endregion
 
@@ -227,7 +229,7 @@ namespace FlappyBird.Managers
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "That's All! Simple n Easy Game", new Vector2(_screenCenterX, _screenQuarterY * 2 + 80), Color.White, 0.0f, TextVectors["Instructions\\Content7"], 1.0f, SpriteEffects.None, 1.0f);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Enjoy!!!", new Vector2(_screenCenterX, _screenQuarterY * 2 + 150), Color.White, 0.0f, TextVectors["Instructions\\Content8"], 1.0f, SpriteEffects.None, 1.0f);
                 Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Instructions\\Back"], Color.White);
-                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Back", new Vector2(_screenCenterX, _screenThirdY * 2 + 150), Color.White, 0.0f, TextVectors["Title\\Instructions"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Back", new Vector2(_screenCenterX +80, _screenThirdY * 2 + 150), Color.White, 0.0f, TextVectors["Title\\Instructions"], 1.0f, SpriteEffects.None, 1.0f);
 
             }
 
@@ -274,6 +276,7 @@ namespace FlappyBird.Managers
 
                 if (Statics.GAME_STATE == Statics.STATE.Playing)
                 {
+                    //power up - jumpboost
                     if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D1) && Pcount > 0)
                     {
                         Pcount--;
@@ -283,6 +286,18 @@ namespace FlappyBird.Managers
                     {
                         Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Glide Power Up: {0}", Pcount.ToString("0")), TextVectors["Game\\GPU"], Color.White);
                     }
+
+                    //slow motion
+                    if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D3) && SMPcount > 0)
+                    {
+                        SMPcount--;
+                        Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Slow Motion: {0}", SMPcount.ToString("3")), TextVectors["Game\\SM"], Color.White);
+                    }
+                    else
+                    {
+                        Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Slow Motion: {0}", SMPcount.ToString("0")), TextVectors["Game\\SM"], Color.White);
+                    }
+
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Score: {0}", Statics.GAME_SCORE.ToString("00")), TextVectors["Game\\Score"], Color.White);
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], string.Format("Level: {0}", Statics.GAME_LEVEL.ToString("00")), TextVectors["Game\\Level"], Color.White);
                 }

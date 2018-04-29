@@ -29,6 +29,9 @@ namespace FlappyBird.Screens
         
         private bool _isCheckingCollision = false;
 
+        private int Pcount = 3;
+        private DateTime startTime;
+
         public GameScreen()
         {
             _previousRefreshTime = TimeSpan.Zero;
@@ -202,6 +205,12 @@ namespace FlappyBird.Screens
                 }
             }
 
+            
+            if (DateTime.UtcNow - startTime > TimeSpan.FromSeconds(5))
+            {
+                Statics.GAME_USESLOWMODE = false;
+            }
+
             base.Update();
         }
 
@@ -228,8 +237,22 @@ namespace FlappyBird.Screens
                 Statics.MANAGER_SCREEN.Stack["Game"].Reset();
             }
 
-            if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.F3))
-                Statics.GAME_USESLOWMODE = Statics.GAME_USESLOWMODE ? false : true;
+            if (Statics.MANAGER_INPUT.IsKeyPressed(Keys.D3))
+            {
+                    startTime = DateTime.UtcNow;
+
+                    if (Pcount > 0)
+                    {
+                        Statics.GAME_USESLOWMODE = true;
+                        Pcount--;
+                    }
+                    else
+                    {
+                    Statics.GAME_USESLOWMODE = false;
+                }
+                
+            }
+                
 
             if (Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.Start) || Statics.MANAGER_INPUT.IsRightMouseClicked() || Statics.MANAGER_INPUT.IsKeyPressed(Keys.Enter))
             {

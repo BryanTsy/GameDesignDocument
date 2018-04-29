@@ -360,3 +360,4 @@ C:\Users\Dastan7\FlappyBird2\GameDesignDocument\obj\x86\Debug\FlappyBird.csproj.
 C:\Users\Dastan7\FlappyBird2\GameDesignDocument\obj\x86\Debug\FlappyBird.csproj.CopyComplete
 C:\Users\Dastan7\FlappyBird2\GameDesignDocument\obj\x86\Debug\FlappyBird.exe
 C:\Users\Dastan7\FlappyBird2\GameDesignDocument\obj\x86\Debug\FlappyBird.pdb
+C:\Users\ASUS\Documents\GitHub\GameDesignDocument\bin\Windows\Debug\Content\Sounds\Button.wav
