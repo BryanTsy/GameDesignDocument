@@ -38,7 +38,8 @@ namespace FlappyBird
 		public enum BIRDS
 		{
 			BirdOri,
-			BirdOrange		}
+			BirdOrange
+		}
 
 
         public static int GAME_WIDTH = 1280;
@@ -48,6 +49,7 @@ namespace FlappyBird
 
         public static string GAME_TITLE = "Flappy Bird";
         public static string GAME_WAIT = "PLEASE WAIT FOR SECONDS...";
+        public static int EasterCount = 0;
 
         public static STATE GAME_STATE = STATE.GameOver;
 

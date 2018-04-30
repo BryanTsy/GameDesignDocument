@@ -9,7 +9,8 @@ namespace FlappyBird.Screens
 {
 	class TitleScreen : Screen
 	{
-		private Rectangle _startButton;
+        private Rectangle _flappyAlien;
+        private Rectangle _startButton;
 		private Rectangle _exitButton;
 		private Rectangle _creditButton;
         private Rectangle _instructionsButton;
@@ -23,7 +24,8 @@ namespace FlappyBird.Screens
 
 		public override void LoadContent()
 		{
-			_startButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Start"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Start"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
+            _flappyAlien = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Title"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Title"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Title"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Title"].Height);
+            _startButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Start"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Start"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
 			_exitButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Exit"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Exit"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
 			_creditButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Credit"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Credit"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
             _instructionsButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Instructions"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Instructions"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
@@ -74,6 +76,15 @@ namespace FlappyBird.Screens
             {
                 sound.Stop();
 
+            }
+
+            if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _flappyAlien.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
+            {
+                Statics.EasterCount++;
+                if (Statics.EasterCount == 4)
+                {
+                        Statics.EasterCount = 0;
+                }
             }
 
             // Input : Keyboard

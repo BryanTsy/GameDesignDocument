@@ -38,7 +38,7 @@ namespace FlappyBird.Managers
             #endregion
 
             #region UI Textures
-
+            Textures.Add("UI\\Title", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Button\\flappy_Title1"));
             Textures.Add("UI\\banner", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\banner"));
             Textures.Add("UI\\Button", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Button\\flappy_button"));
             Textures.Add("UI\\ButtonExit", Statics.GAME_CONTENT.Load<Texture2D>("Textures\\Button\\flappy_button_exit"));

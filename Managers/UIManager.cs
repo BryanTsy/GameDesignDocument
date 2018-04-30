@@ -52,8 +52,7 @@ namespace FlappyBird.Managers
 
             #endregion
 
-            #region Screen : 
-
+            #region Screen : Title
 
 
             TextVectors.Add("Title\\Title", Statics.MANAGER_FONT.Library["Large"].MeasureString(Statics.GAME_TITLE) / 2);
@@ -63,6 +62,7 @@ namespace FlappyBird.Managers
             TextVectors.Add("Title\\Instructions", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Instructions") / 2);
             TextVectors.Add("Title\\Mute", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Mute") / 2);
 
+            TextureVectors.Add("Title\\Title", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Title"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Title"].Height / 2) - 310));
             TextureVectors.Add("Title\\Start", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) - 110));
             TextureVectors.Add("Title\\Exit", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 0));
             TextureVectors.Add("Title\\Credit", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 115));
@@ -183,6 +183,7 @@ namespace FlappyBird.Managers
             }
             else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Title"])
             {
+                Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Title"], TextureVectors["Title\\Title"], Color.White);
                 Statics.GAME_SPRITEBATCH.Draw(Statics.TEXTURE_PIXEL, new Rectangle(0, 0, Statics.GAME_WIDTH, Statics.GAME_HEIGHT), Statics.COLOR_TITLE);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"], Statics.GAME_TITLE, new Vector2(_screenCenterX, _screenQuarterY), Color.White, 0.0f, TextVectors["Title\\Title"], 1.0f, SpriteEffects.None, 1.0f);
 
