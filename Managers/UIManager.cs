@@ -263,6 +263,7 @@ namespace FlappyBird.Managers
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Extra"], Statics.GAME_SCORE.ToString("00"), new Vector2(_screenCenterX, _screenCenterY - 30), Color.White, 0.0f, TextVectors["GameOver\\Score"], 1.0f, SpriteEffects.None, 1.0f);
                     Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], string.Format("You flapped for {0} seconds", Statics.TIME_ACTUALGAMETIME.TotalSeconds.ToString("00")), new Vector2(_screenCenterX, _screenCenterY + 160), Color.White, 0.0f, TextVectors["GameOver\\TimeFlapped"], 1.0f, SpriteEffects.None, 1.0f);
                     Pcount = 3;
+                    SMPcount = 3;
 
                     if (Statics.GAME_NEWHIGHSCORE)
                         Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"], "New high score", new Vector2(_screenCenterX, _screenCenterY + 100), Color.White, 0.0f, TextVectors["GameOver\\HighScore"], 1.0f, SpriteEffects.None, 1.0f);

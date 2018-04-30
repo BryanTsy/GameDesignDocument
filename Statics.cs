@@ -104,5 +104,6 @@ namespace FlappyBird
         public static int DEBUG_ENTITIES = 0;
         public static Vector2 DEBUG_PLAYER = Vector2.Zero;
         public static float DEBUG_FPS = 0f;
+        public static int SMPCount = 3;
     }
 }

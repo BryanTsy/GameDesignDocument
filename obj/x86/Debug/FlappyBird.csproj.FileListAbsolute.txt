@@ -440,3 +440,5 @@ D:\Users\ASUS\Documents\GameDesignDocument\bin\Windows\Debug\Content\Textures\Bu
 D:\Users\ASUS\Documents\GameDesignDocument\bin\Windows\Debug\Content\Textures\Background\spaceship.png
 D:\Users\ASUS\Documents\Uni Stuffs\GameDesignDocument\bin\Windows\Debug\Content\Textures\Background\spaceship.png
 D:\Users\ASUS\Documents\Uni Stuffs\GameDesignDocument\bin\Windows\Debug\Content\Textures\Button\flappy_Title1.png
+C:\Users\ASUS\Documents\GitHub\GameDesignDocument\bin\Windows\Debug\Content\Textures\Background\spaceship.png
+C:\Users\ASUS\Documents\GitHub\GameDesignDocument\bin\Windows\Debug\Content\Textures\Button\flappy_Title1.png

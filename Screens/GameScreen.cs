@@ -29,7 +29,6 @@ namespace FlappyBird.Screens
         
         private bool _isCheckingCollision = false;
 
-        private int Pcount = 3;
         private DateTime startTime;
 
         public GameScreen()
@@ -73,9 +72,11 @@ namespace FlappyBird.Screens
             Statics.GAME_SPEED_DIFFICULTY = 1;
             Statics.GAME_LEVEL = 1;
             Statics.GAME_SCORE = 0;
+            Statics.SMPCount = 3;
             Statics.GAME_NEWHIGHSCORE = false;
             Statics.TIME_ACTUALGAMETIME = TimeSpan.Zero;
-
+            Statics.GAME_USESLOWMODE = false;
+       
             Statics.GAME_BACKGROUND.ResetBackgrounds();
             Statics.GAME_FOREGROUND.ResetBackgrounds();
         }
@@ -108,6 +109,13 @@ namespace FlappyBird.Screens
 
                     Console.WriteLine("Refresh time: " + _refreshTime.TotalMilliseconds);
                     Console.WriteLine("Background move speed: " + Statics.GAME_BACKGROUND.BackgroundLayer_Stack["Houses"].MoveSpeed);
+
+
+                }
+
+                if (DateTime.UtcNow - startTime > TimeSpan.FromSeconds(5))
+                {
+                    Statics.GAME_USESLOWMODE = false;
                 }
 
                 // Add new obstacle
@@ -205,12 +213,6 @@ namespace FlappyBird.Screens
                 }
             }
 
-            
-            if (DateTime.UtcNow - startTime > TimeSpan.FromSeconds(5))
-            {
-                Statics.GAME_USESLOWMODE = false;
-            }
-
             base.Update();
         }
 
@@ -241,10 +243,10 @@ namespace FlappyBird.Screens
             {
                     startTime = DateTime.UtcNow;
 
-                    if (Pcount > 0)
+                    if (Statics.SMPCount > 0)
                     {
                         Statics.GAME_USESLOWMODE = true;
-                        Pcount--;
+                    Statics.SMPCount--;
                     }
                     else
                     {
