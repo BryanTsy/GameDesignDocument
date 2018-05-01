@@ -58,6 +58,7 @@
     <Compile Include="Layers\Foreground.cs" />
     <Compile Include="Managers\SoundManager.cs" />
     <Compile Include="Managers\TextureManager.cs" />
+    <Compile Include="Screens\ConfirmExit.cs" />
     <Compile Include="Screens\DebugScreen.cs" />
     <Compile Include="Screens\Instructions.cs" />
     <Compile Include="Screens\SplashScreen.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="Screens\DeathScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\Credit.cs" />
-    <Compile Include="Screens\ConfirmExit.cs" />
     <Compile Include="Templates\Screen.cs" />
     <Compile Include="Screens\TitleScreen.cs" />
     <Compile Include="Statics.cs" />

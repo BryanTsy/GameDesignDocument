@@ -18,7 +18,8 @@ namespace FlappyBird.Managers
             Level,
             Title,
             Credit,
-            Instructions
+            Instructions,
+            ConfirmExit
 
         }
 
@@ -43,6 +44,7 @@ namespace FlappyBird.Managers
 			_stack.Add("Characters", new Screens.CharSelectScreen());
             _stack.Add("Credit", new Screens.Credit());
             _stack.Add("Instructions", new Screens.Instructions());
+            _stack.Add("Confirm", new Screens.ConfirmExit());
 
         }
 
