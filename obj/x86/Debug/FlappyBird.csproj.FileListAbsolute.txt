@@ -442,3 +442,9 @@ D:\Users\ASUS\Documents\Uni Stuffs\GameDesignDocument\bin\Windows\Debug\Content\
 D:\Users\ASUS\Documents\Uni Stuffs\GameDesignDocument\bin\Windows\Debug\Content\Textures\Button\flappy_Title1.png
 C:\Users\ASUS\Documents\GitHub\GameDesignDocument\bin\Windows\Debug\Content\Textures\Background\spaceship.png
 C:\Users\ASUS\Documents\GitHub\GameDesignDocument\bin\Windows\Debug\Content\Textures\Button\flappy_Title1.png
+C:\Users\Wilson To\Source\Repos\GameDesignDocument\bin\Windows\Debug\Content\Sounds\Button.wav
+C:\Users\Wilson To\Source\Repos\GameDesignDocument\bin\Windows\Debug\Content\Textures\banner.png
+C:\Users\Wilson To\Source\Repos\GameDesignDocument\bin\Windows\Debug\Content\Textures\bannerM.png
+C:\Users\Wilson To\Source\Repos\GameDesignDocument\bin\Windows\Debug\Content\Textures\Entity\bannerM.png
+C:\Users\Wilson To\Source\Repos\GameDesignDocument\bin\Windows\Debug\Content\Textures\Background\spaceship.png
+C:\Users\Wilson To\Source\Repos\GameDesignDocument\bin\Windows\Debug\Content\Textures\Button\flappy_Title1.png

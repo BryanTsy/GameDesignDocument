@@ -106,6 +106,13 @@ namespace FlappyBird.Managers
 
             #endregion
 
+            #region Screen : ConfirmExit
+            TextVectors.Add("ConfirmExit\\Title", Statics.MANAGER_FONT.Library["Large"].MeasureString("Are you really want to exit") / 2);
+             TextVectors.Add("ConfirmExit\\Yes", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Yes") / 2);
+            TextureVectors.Add("ConfirmExit\\Yes", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2)-150, (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 10));
+            TextVectors.Add("ConfirmExit\\No", Statics.MANAGER_FONT.Library["Regular"].MeasureString("No") / 2);
+            TextureVectors.Add("ConfirmExit\\No", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2)+150, (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 10));
+            #endregion
             #region Screen : Instructions
             TextVectors.Add("Instructions\\Title", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Instructions for Flappy Bird") / 2);
             TextVectors.Add("Instructions\\Content1", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Buttons to click for jump:") / 2);
@@ -218,6 +225,14 @@ namespace FlappyBird.Managers
                  Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Credit\\Back"], Color.White);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Back", new Vector2(_screenCenterX, _screenThirdY * 2 + 150), Color.White, 0.0f, TextVectors["Title\\Credit"], 1.0f, SpriteEffects.None, 1.0f);
 
+                }
+            else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Confirm"])
+                {
+                  Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"],"Are you really want to quit", new Vector2(_screenCenterX, _screenQuarterY * 2 -50), Color.White, 0.0f, TextVectors["ConfirmExit\\Title"], 1.0f, SpriteEffects.None, 1.0f);
+                 Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["ConfirmExit\\Yes"], Color.White);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Yes", new Vector2(_screenCenterX - 150, _screenThirdY * 2 + 10), Color.White, 0.0f, TextVectors["ConfirmExit\\Yes"], 1.0f, SpriteEffects.None, 1.0f);
+                 Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["ConfirmExit\\No"], Color.White);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "No", new Vector2(_screenCenterX + 150, _screenThirdY * 2 + 10), Color.White, 0.0f, TextVectors["ConfirmExit\\No"], 1.0f, SpriteEffects.None, 1.0f);
                 }
 
             else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Instructions"])

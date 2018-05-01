@@ -58,7 +58,7 @@ namespace FlappyBird.Screens
 			if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _exitButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
 			{
 				sound.Play();
-				Statics.GAME_STATE = Statics.STATE.Exit;
+				Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Confirm"];
 			}
 			if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _creditButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
 			{
