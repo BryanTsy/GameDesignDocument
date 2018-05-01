@@ -82,6 +82,7 @@
     <Compile Include="Screens\DeathScreen.cs" />
     <Compile Include="Screens\GameScreen.cs" />
     <Compile Include="Screens\Credit.cs" />
+    <Compile Include="Screens\ConfirmExit.cs" />
     <Compile Include="Templates\Screen.cs" />
     <Compile Include="Screens\TitleScreen.cs" />
     <Compile Include="Statics.cs" />
