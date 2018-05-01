@@ -134,7 +134,8 @@ namespace FlappyBird.Managers
 
             TextVectors.Add("Pause\\Title", Statics.MANAGER_FONT.Library["Large"].MeasureString("Paused") / 2);
             TextVectors.Add("Pause\\Continue", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Press ENTER to continue") / 2);
-
+			TextVectors.Add("Pause\\Main", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Press ESC to Main Menu") / 2);
+			TextVectors.Add("Pause\\Exit", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Press ESC twice to quit") / 2);
             
             TextureVectors.Add("Pause\\Exit", new Vector2((float)(Statics.GAME_WIDTH - _screenThirdX - Statics.MANAGER_TEXTURES.Textures["UI\\ButtonExit"].Width), _screenThirdY * 2));
 
@@ -272,8 +273,10 @@ namespace FlappyBird.Managers
                 if (Statics.GAME_STATE == Statics.STATE.Paused)
                 {
                     Statics.GAME_SPRITEBATCH.Draw(Statics.TEXTURE_PIXEL, new Rectangle(0, 0, Statics.GAME_WIDTH, Statics.GAME_HEIGHT), Statics.COLOR_PAUSED);
-                    Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"], "Paused", new Vector2(_screenCenterX, _screenQuarterY), Color.White, 0.0f, TextVectors["Pause\\Title"], 1.0f, SpriteEffects.None, 1.0f);
-                    Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Press ENTER to continue", new Vector2(_screenCenterX, _screenThirdY + 50), Color.White, 0.0f, TextVectors["Pause\\Continue"], 1.0f, SpriteEffects.None, 1.0f);
+                    Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"], "Paused", new Vector2(_screenCenterX, _screenQuarterY), Color.Black, 0.0f, TextVectors["Pause\\Title"], 1.0f, SpriteEffects.None, 1.0f);
+                    Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Press ENTER to continue", new Vector2(_screenCenterX, _screenThirdY + 50), Color.Black, 0.0f, TextVectors["Pause\\Continue"], 1.0f, SpriteEffects.None, 1.0f);
+					Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Press ESC to Main Menu", new Vector2(_screenCenterX, _screenThirdY + 100), Color.Black, 0.0f, TextVectors["Pause\\Main"], 1.0f, SpriteEffects.None, 1.0f);
+					Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Press ESC twice to quit", new Vector2(_screenCenterX, _screenThirdY + 150), Color.Black, 0.0f, TextVectors["Pause\\Exit"], 1.0f, SpriteEffects.None, 1.0f);
                 }
 
                 if (Statics.GAME_STATE == Statics.STATE.Playing)
