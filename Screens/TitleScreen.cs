@@ -17,7 +17,8 @@ namespace FlappyBird.Screens
         private Rectangle _muteButton;
         System.Media.SoundPlayer sound = new System.Media.SoundPlayer("Content\\Sounds\\Button.wav");
 
-		public TitleScreen()
+       
+        public TitleScreen()
 		{
 			Statics.GAME_STATE = Statics.STATE.Loading;
 		}
@@ -29,7 +30,7 @@ namespace FlappyBird.Screens
 			_exitButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Exit"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Exit"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
 			_creditButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Credit"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Credit"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
             _instructionsButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Instructions"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Instructions"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
-            _muteButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Mute"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Mute"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
+            _muteButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Mute2"].X, (int)Statics.MANAGER_UI.TextureVectors["Title\\Mute2"].Y, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height);
             base.LoadContent();
 		}
 
@@ -75,6 +76,14 @@ namespace FlappyBird.Screens
             if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _muteButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
             {
                 sound.Stop();
+
+            }
+
+            if (_muteButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
+
+            {
+
+                _muteButton = new Rectangle((int)Statics.MANAGER_UI.TextureVectors["Title\\Mute2"].X-2, (int)Statics.MANAGER_UI.TextureVectors["Title\\Mute2"].Y-2, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width+4, Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height+4);
 
             }
 
