@@ -68,7 +68,7 @@ namespace FlappyBird.Managers
             TextVectors.Add("Title\\Start", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Start") / 2);
             TextVectors.Add("Title\\Exit", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Exit") / 2);
             TextVectors.Add("Title\\Credit", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Credit") / 2);
-            TextVectors.Add("Title\\Instructions", Statics.MANAGER_FONT.Library["Small"].MeasureString("Instructions") / 2);
+            TextVectors.Add("Title\\Instructions", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Instructions") / 2);
             TextVectors.Add("Title\\Mute", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Mute") / 2);
             TextVectors.Add("Title\\Mute2", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Mute") / 2);
 
@@ -253,12 +253,12 @@ namespace FlappyBird.Managers
                 if (_instructionsButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
                 {
                     Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Title\\Instructions"], Color.BlueViolet);
-                    Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Instructions", new Vector2(_screenCenterX, _screenThirdY * 2 - 179), Color.White, 0.0f, TextVectors["Title\\Instructions"], 1.0f, SpriteEffects.None, 1.0f);
+                    Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Instructions", new Vector2(_screenCenterX, _screenThirdY * 2 - 179), Color.White, 0.0f, TextVectors["Title\\Instructions"], 0.9f, SpriteEffects.None, 1.0f);
                 }
                 else
                 {
                     Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Title\\Instructions"], Color.White);
-                    Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Instructions", new Vector2(_screenCenterX, _screenThirdY * 2 - 179), Color.White, 0.0f, TextVectors["Title\\Instructions"], 1.0f, SpriteEffects.None, 1.0f);
+                    Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Instructions", new Vector2(_screenCenterX, _screenThirdY * 2 - 179), Color.White, 0.0f, TextVectors["Title\\Instructions"], 0.9f, SpriteEffects.None, 1.0f);
 
                 }
                 if (_muteButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
