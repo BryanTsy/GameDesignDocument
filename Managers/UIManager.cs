@@ -125,14 +125,16 @@ namespace FlappyBird.Managers
             TextVectors.Add("ConfirmExit\\No", Statics.MANAGER_FONT.Library["Regular"].MeasureString("No") / 2);
             TextureVectors.Add("ConfirmExit\\No", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2)+150, (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 10));
             #endregion
+            
             #region Screen : Instructions
             TextVectors.Add("Instructions\\Title", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Instructions for Flappy Bird") / 2);
-            TextVectors.Add("Instructions\\Content1", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Buttons to click for jump:") / 2);
-            TextVectors.Add("Instructions\\Content2", Statics.MANAGER_FONT.Library["Small"].MeasureString("Space bar") / 2);
-            TextVectors.Add("Instructions\\Content3", Statics.MANAGER_FONT.Library["Small"].MeasureString("Left mouse click") / 2);
+            TextVectors.Add("Instructions\\Content1", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Buttons:") / 2);
+            TextVectors.Add("Instructions\\Content2", Statics.MANAGER_FONT.Library["Small"].MeasureString("Space bar or left mouse click to jump") / 2);
+            TextVectors.Add("Instructions\\Content4", Statics.MANAGER_FONT.Library["Small"].MeasureString("1 to activate glide") / 2);
+            TextVectors.Add("Instructions\\Content5", Statics.MANAGER_FONT.Library["Small"].MeasureString("3 to activate slow motion") / 2);
 
-            TextVectors.Add("Instructions\\Content7", Statics.MANAGER_FONT.Library["Regular"].MeasureString("That's All! Simple n Easy Game") / 2);
-            TextVectors.Add("Instructions\\Content8", Statics.MANAGER_FONT.Library["Small"].MeasureString("Enjoy!!!") / 2);
+            TextVectors.Add("Instructions\\Content7", Statics.MANAGER_FONT.Library["Regular"].MeasureString("ENJOY!!!") / 2);
+            TextVectors.Add("Instructions\\Content8", Statics.MANAGER_FONT.Library["Small"].MeasureString("Also, There Is a Hidden Easter Egg In The Title Screen, Go Clicking To Find It ;)") / 2);
 
             TextVectors.Add("Instructions\\Back", Statics.MANAGER_FONT.Library["Regular"].MeasureString("Instructions") / 2);
             TextureVectors.Add("Instructions\\Back", new Vector2((Statics.GAME_WIDTH / 2) - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Width / 2), (Statics.GAME_HEIGHT / 3) * 2 - (Statics.MANAGER_TEXTURES.Textures["UI\\Button"].Height / 2) + 150));
@@ -214,6 +216,7 @@ namespace FlappyBird.Managers
                 Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Title"], TextureVectors["Title\\Title"], Color.White);
                 Statics.GAME_SPRITEBATCH.Draw(Statics.TEXTURE_PIXEL, new Rectangle(0, 0, Statics.GAME_WIDTH, Statics.GAME_HEIGHT), Statics.COLOR_TITLE);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"], Statics.GAME_TITLE, new Vector2(_screenCenterX, _screenQuarterY), Color.White, 0.0f, TextVectors["Title\\Title"], 1.0f, SpriteEffects.None, 1.0f);
+
                 if (_startButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
                 {
                     Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Title\\Start"], Color.BlueViolet);
@@ -272,8 +275,8 @@ namespace FlappyBird.Managers
                 
             }
             else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Credit"])
-                {
-                 Statics.GAME_SPRITEBATCH.Draw(Statics.TEXTURE_PIXEL, new Rectangle(0, 0, Statics.GAME_WIDTH, Statics.GAME_HEIGHT), Statics.COLOR_TITLE);
+            {
+                Statics.GAME_SPRITEBATCH.Draw(Statics.TEXTURE_PIXEL, new Rectangle(0, 0, Statics.GAME_WIDTH, Statics.GAME_HEIGHT), Statics.COLOR_TITLE);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"],"Development Project 1 (Operation Flappy)", new Vector2(_screenCenterX, _screenQuarterY * 2 -300), Color.White, 0.0f, TextVectors["Credit\\Title"], 1.0f, SpriteEffects.None, 1.0f);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"],"Improvements have been made by:", new Vector2(_screenCenterX, _screenQuarterY * 2 -230), Color.White, 0.0f, TextVectors["Credit\\Content1"], 1.0f, SpriteEffects.None, 1.0f);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"],"Bryan Ting", new Vector2(_screenCenterX, _screenQuarterY * 2 -160), Color.White, 0.0f, TextVectors["Credit\\Content2"], 1.0f, SpriteEffects.None, 1.0f);
@@ -281,31 +284,32 @@ namespace FlappyBird.Managers
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"],"Tey Yee", new Vector2(_screenCenterX, _screenQuarterY * 2 -80), Color.White, 0.0f, TextVectors["Credit\\Content4"], 1.0f, SpriteEffects.None, 1.0f);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"],"Casimir", new Vector2(_screenCenterX, _screenQuarterY * 2 -40), Color.White, 0.0f, TextVectors["Credit\\Content5"], 1.0f, SpriteEffects.None, 1.0f);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"],"Dastan", new Vector2(_screenCenterX, _screenQuarterY * 2 -0), Color.White, 0.0f, TextVectors["Credit\\Content6"], 1.0f, SpriteEffects.None, 1.0f);
-                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"],"Original Version Author", new Vector2(_screenCenterX, _screenQuarterY * 2 +80), Color.White, 0.0f, TextVectors["Credit\\Content7"], 1.0f, SpriteEffects.None, 1.0f);
-                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"],"Sranshaft", new Vector2(_screenCenterX, _screenQuarterY * 2 +150), Color.White, 0.0f, TextVectors["Credit\\Content8"], 1.0f, SpriteEffects.None, 1.0f);
-                 Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Credit\\Back"], Color.White);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"],"Original Version Author", new Vector2(_screenCenterX, _screenQuarterY * 2 +80), Color.White, 0.0f, TextVectors["Credit\\Content7"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"],"Sranshaft", new Vector2(_screenCenterX, _screenQuarterY * 2 +150), Color.White, 0.0f, TextVectors["Credit\\Content8"], 1.0f, SpriteEffects.None, 1.0f);
+
+                Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Credit\\Back"], Color.White);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Back", new Vector2(_screenCenterX, _screenThirdY * 2 + 150), Color.White, 0.0f, TextVectors["Title\\Credit"], 1.0f, SpriteEffects.None, 1.0f);
 
-                }
+            }
             else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Confirm"])
-                {
+            {
                   Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Large"],"Are you really want to quit", new Vector2(_screenCenterX, _screenQuarterY * 2 -50), Color.White, 0.0f, TextVectors["ConfirmExit\\Title"], 1.0f, SpriteEffects.None, 1.0f);
                  Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["ConfirmExit\\Yes"], Color.White);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Yes", new Vector2(_screenCenterX - 150, _screenThirdY * 2 + 10), Color.White, 0.0f, TextVectors["ConfirmExit\\Yes"], 1.0f, SpriteEffects.None, 1.0f);
                  Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["ConfirmExit\\No"], Color.White);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "No", new Vector2(_screenCenterX + 150, _screenThirdY * 2 + 10), Color.White, 0.0f, TextVectors["ConfirmExit\\No"], 1.0f, SpriteEffects.None, 1.0f);
-                }
-
+            }
             else if (Statics.SCREEN_CURRENT == Statics.MANAGER_SCREEN.Stack["Instructions"])
             {
                 Statics.GAME_SPRITEBATCH.Draw(Statics.TEXTURE_PIXEL, new Rectangle(0, 0, Statics.GAME_WIDTH, Statics.GAME_HEIGHT), Statics.COLOR_TITLE);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Instructions for Flappy Bird", new Vector2(_screenCenterX, _screenQuarterY * 2 - 300), Color.White, 0.0f, TextVectors["Instructions\\Title"], 1.0f, SpriteEffects.None, 1.0f);
-                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Buttons to click for jump:", new Vector2(_screenCenterX, _screenQuarterY * 2 - 230), Color.White, 0.0f, TextVectors["Instructions\\Content1"], 1.0f, SpriteEffects.None, 1.0f);
-                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Space bar", new Vector2(_screenCenterX, _screenQuarterY * 2 - 160), Color.White, 0.0f, TextVectors["Instructions\\Content2"], 1.0f, SpriteEffects.None, 1.0f);
-                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Left mouse click", new Vector2(_screenCenterX, _screenQuarterY * 2 - 120), Color.White, 0.0f, TextVectors["Instructions\\Content3"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Buttons:", new Vector2(_screenCenterX, _screenQuarterY * 2 - 230), Color.White, 0.0f, TextVectors["Instructions\\Content1"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Space bar or left mouse click to jump", new Vector2(_screenCenterX, _screenQuarterY * 2 - 180), Color.White, 0.0f, TextVectors["Instructions\\Content2"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "1 to activate glide", new Vector2(_screenCenterX, _screenQuarterY * 2 - 150), Color.White, 0.0f, TextVectors["Instructions\\Content4"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "3 to activate slow motion", new Vector2(_screenCenterX, _screenQuarterY * 2 - 120), Color.White, 0.0f, TextVectors["Instructions\\Content5"], 1.0f, SpriteEffects.None, 1.0f);
 
-                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "That's All! Simple n Easy Game", new Vector2(_screenCenterX, _screenQuarterY * 2 + 80), Color.White, 0.0f, TextVectors["Instructions\\Content7"], 1.0f, SpriteEffects.None, 1.0f);
-                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Enjoy!!!", new Vector2(_screenCenterX, _screenQuarterY * 2 + 150), Color.White, 0.0f, TextVectors["Instructions\\Content8"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "ENJOY!!!", new Vector2(_screenCenterX, _screenQuarterY * 2 + 80), Color.White, 0.0f, TextVectors["Instructions\\Content7"], 1.0f, SpriteEffects.None, 1.0f);
+                Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Small"], "Also, There Is a Hidden Easter Egg In The Title Screen, Go Clicking To Find It ;)", new Vector2(_screenCenterX, _screenQuarterY * 2 + 150), Color.White, 0.0f, TextVectors["Instructions\\Content8"], 1.0f, SpriteEffects.None, 1.0f);
                 Statics.GAME_SPRITEBATCH.Draw(Statics.MANAGER_TEXTURES.Textures["UI\\Button"], TextureVectors["Instructions\\Back"], Color.White);
                 Statics.GAME_SPRITEBATCH.DrawString(Statics.MANAGER_FONT.Library["Regular"], "Back", new Vector2(_screenCenterX +80, _screenThirdY * 2 + 150), Color.White, 0.0f, TextVectors["Title\\Instructions"], 1.0f, SpriteEffects.None, 1.0f);
 
