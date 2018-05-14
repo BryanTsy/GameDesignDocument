@@ -47,7 +47,7 @@ namespace FlappyBird.Screens
 				sound.Play();
                 Statics.GAME_WORLD = Statics.WORLD.Bullets;
 
-                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Game"];
+                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Characters"];
                 Statics.GAME_STATE = Statics.STATE.Playing;
             }
             else if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _paratroopaButton.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
@@ -55,7 +55,7 @@ namespace FlappyBird.Screens
 				sound.Play();
                 Statics.GAME_WORLD = Statics.WORLD.Paratroopas;
                 
-                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Game"];
+                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Characters"];
                 Statics.GAME_STATE = Statics.STATE.Playing;
             }
 

@@ -41,18 +41,18 @@ namespace FlappyBird.Screens
 			{
 				sound.Play();
 				Statics.CHAR_SELECT = Statics.BIRDS.BirdOri;
-				Statics.GAME_WORLD = Statics.WORLD.Pipes;
 
-				Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Game"];
+                Statics.MANAGER_SCREEN.Stack["Game"].Reset();
+                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Game"];
 				Statics.GAME_STATE = Statics.STATE.Playing;
 			}
 			else if ((Statics.MANAGER_INPUT.IsGamepadPressed(Buttons.A) || Statics.MANAGER_INPUT.IsLeftMouseClicked()) && _charBirdOrange.Contains(Statics.MANAGER_INPUT.GetCursorPosition()))
 			{
 				sound.Play();
 				Statics.CHAR_SELECT = Statics.BIRDS.BirdOrange;
-				Statics.GAME_WORLD = Statics.WORLD.Pipes;
 
-				Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Game"];
+                Statics.MANAGER_SCREEN.Stack["Game"].Reset();
+                Statics.SCREEN_CURRENT = Statics.MANAGER_SCREEN.Stack["Game"];
 				Statics.GAME_STATE = Statics.STATE.Playing;
 			}
 
